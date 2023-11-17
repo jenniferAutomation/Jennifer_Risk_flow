@@ -1,4 +1,6 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Risk_Flow  {
@@ -7,7 +9,18 @@ public class Risk_Flow  {
 		System.setProperty("WebDriver.chrome.driver", "C:\\AutomationFiles\\chromedriver-win64.zip\\chromedriver.exe");
 		
 ChromeDriver driver=new ChromeDriver();
-driver.get("https://www.facebook.com/login/");
-	}
+driver.get("https://mufasa.kredx.com/admin/dashboard/companies/CO1QX6JJL0OL/lob/RECEIVABLES/risk-info");
+driver.manage().window().maximize();
+WebElement admin = driver.findElement(By.xpath("//*[@id=\"email\"]"));
+admin.sendKeys("admin@kredx.com");
+WebElement password = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+password.sendKeys("@B86OBjgJ7b&");
+WebElement button = driver.findElement(By.xpath("//*[@id=\"kredx-single-system\"]/div[1]/div[2]/div/div/div/div[1]/div[2]/form/div[4]/button/div/span"));
+button.click();
+WebElement otp = driver.findElement(By.xpath("//*[@id=\"otp\"]"));
+otp.sendKeys("000000");
+WebElement verify = driver.findElement(By.xpath("//*[@id=\"kredx-single-system\"]/div[1]/div[2]/div/div/div/div[1]/div/div/div[2]/div/div[2]/div/div/div/div[2]/button/div/span"));
+verify.click();	
 
+	}
 }
